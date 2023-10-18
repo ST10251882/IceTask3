@@ -1,5 +1,4 @@
 //Tiffany Yav - ST10251882
-// Import React and other necessary libraries
 import React, { useState, useEffect } from 'react';
 import { 
   View, 
@@ -11,18 +10,15 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-// Create a custom component for the counter screen using a function declaration
 function CounterScreen({ navigation }) {
-  // Declare a state variable for the counter value
   const [count, setCount] = useState(0);
-  // Declare a state variable for the display text
   const [dispText, setDispText] = useState('');
 
   // Use the useEffect hook to set the display text when the count changes
   useEffect(() => {
-    // Set the display text to 'Effect - The count is ' + count
+   
     setDispText('Effect - The count is ' + count);
-    // Convert the count value to a string
+    
     const value = count.toString();
     // Save the value to AsyncStorage with the key 'counter'
     AsyncStorage.setItem('counter', value);
@@ -59,16 +55,15 @@ function CounterScreen({ navigation }) {
 
 // Create a custom component for the display counter screen using a function declaration
 function DisplayCounterScreen() {
-  // Declare a state variable for the counter value
+  
   const [counter, setCounter] = useState(0);
-
   // Define a function to get the counter value from AsyncStorage
   const getCounter = async () => {
     // Get the value from AsyncStorage with the key 'counter'
     const value = await AsyncStorage.getItem('counter');
-    // Convert the value to a number
+   
     const number = parseInt(value, 10);
-    // Set the counter state with the number
+    
     setCounter(number);
   };
 
@@ -88,7 +83,6 @@ function DisplayCounterScreen() {
 // Create a native stack navigator
 const Stack = createNativeStackNavigator();
 
-// Create a custom component for the app using a function declaration
 function App() {
   return (
     <NavigationContainer>
